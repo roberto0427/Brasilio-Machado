@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #game {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+        .cell.taken {
+            cursor: not-allowed;
+        }
+        #winner {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="game"></div>
+        <div id="winner"></div>
+    </div>
+
+    <script>
+        const game = document.getElementById('game');
+        const winnerDisplay = document.getElementById('winner');
+        let currentPlayer = 'X';
+        let board = ['', '', '', '', '', '', '', '', ''];
+
+        // Create the game board
+        function createBoard() {
+            board.forEach((_, index) => {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.dataset.index = index;
+                cell.addEventListener('click', handleMove);
+                game.appendChild(cell);
+            });
+        }
+
+        // Handle player move
+        function handleMove(event) {
+            const cell = event.target;
+            const index = cell.dataset.index;
+
+            if (board[index] === '' && !winnerDisplay.textContent) {
+                board[index] = currentPlayer;
+                cell.textContent = currentPlayer;
+                cell.classList.add('taken');
+
+                if (checkWinner()) {
+                    winnerDisplay.textContent = `Jogador ${currentPlayer} venceu!`;
+                } else if (board.every(cell => cell !== '')) {
+                    winnerDisplay.textContent = 'Empate!';
+                } else {
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                }
+            }
+        }
+
+        // Check for a winner
+        function checkWinner() {
+            const winningCombinations = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6],
+            ];
+
+            return winningCombinations.some(combination => {
+                const [a, b, c] = combination;
+                return (
+                    board[a] &&
+                    board[a] === board[b] &&
+                    board[a] === board[c]
+                );
+            });
+        }
+
+        createBoard();
+    </script>
+</body>
+</html>

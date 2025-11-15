@@ -1,0 +1,16 @@
+/*estilo do calendario*/
+body{
+    background-color: rgb(225, 225, 223);
+    align-items: center;
+    justify-content: center;
+    justify-items: baseline;
+    font-style: normal;
+}
+
+image {
+    border-color: black;
+    image-resolution: 3d;
+    flex-direction: flex;
+    align-items: center;
+    
+}    

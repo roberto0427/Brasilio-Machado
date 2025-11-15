@@ -1,0 +1,104 @@
+/* styles.css */
+
+/* Resetando margens e preenchimentos padrões */
+* {
+    margin: 50;
+    padding: 50;
+    box-sizing: border-box;
+}
+
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Cor de fundo clara */
+    color: #333; /* Texto escuro */
+}
+/* Cabeçalho */
+header {
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    padding: 0,5px 0px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento central */
+    font-size: 17px;
+}
+
+/* Logo dentro do cabeçalho */
+header .logo h1 {
+    margin: 0;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Menu de navegação */
+nav ul {
+    list-style: none; /* Remove os marcadores da lista */
+    padding: 0;
+    margin-top: 10px; /* Espaçamento superior */
+}
+
+nav ul li {
+    display: inline; /* Exibe os itens de menu em linha */
+    margin: 0 15px; /* Espaçamento entre os itens */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: white; /* Cor do texto */
+    font-weight: bold; /* Negrito no texto */
+}
+
+/* Estilo das seções */
+.section {
+    padding: 20px;
+    margin: 20px auto; /* Centraliza a seção com margem */
+    background-color: white; /* Cor de fundo branca */
+    border-radius: 8px; /* Bordas arredondadas */
+    max-width: 900px; /* Limita a largura da seção */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-color: #df0a0a;
+}
+
+h2 {
+    color: #4CAF50; /* Cor do título */
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+/* Lista de eventos no calendário */
+ul {
+    list-style-type: square; /* Lista com marcadores quadrados */
+}
+
+/* Rodapé refazer*/
+
+footer{
+    align-items: end;
+    text-align: center;
+}
+
+/* Estilo do formulário de contato */
+form label {
+    display: block; /* Faz com que os rótulos ocupem uma linha inteira */
+    margin-top: 10px; /* Espaçamento superior */
+}
+
+form input, form textarea {
+    width: 100%; /* Faz os campos ocuparem toda a largura */
+    padding: 10px; /* Preenchimento interno */
+    margin-top: 5px; /* Espaçamento superior */
+    border: 1px solid #ccc; /* Borda clara */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+form button {
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Preenchimento do botão */
+    border: none; /* Remove a borda */
+    margin-top: 10px; /* Espaçamento superior */
+    cursor: pointer; /* Cursor de "mãozinha" */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+form button:hover {
+    background-color: #45a049; /* Alteração na cor ao passar o mouse */
+}

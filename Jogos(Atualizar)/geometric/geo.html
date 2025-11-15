@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Geometry Dash Java</title>
+    <link rel="stylesheet" href="geo.css">
+</head>
+<body>
+    <h1>Geometry Dash Java</h1>
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+    <p>Pressione ESPAÇO para pular!</p>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Jogador
+        let player = { x: 50, y: 300, w: 40, h: 40, vy: 0, jump: -12, gravity: 0.7, grounded: false };
+
+        // Obstáculo
+        let obstacle = { x: 800, y: 350, w: 40, h: 40, speed: 6 };
+
+        let gameOver = false;
+
+        function drawPlayer() {
+            ctx.fillStyle = "#00c3ff";
+            ctx.fillRect(player.x, player.y, player.w, player.h);
+        }
+
+        function drawObstacle() {
+            ctx.fillStyle = "#ff0055";
+            ctx.fillRect(obstacle.x, obstacle.y, obstacle.w, obstacle.h);
+        }
+
+        function updatePlayer() {
+            player.vy += player.gravity;
+            player.y += player.vy;
+
+            if (player.y + player.h >= canvas.height) {
+                player.y = canvas.height - player.h;
+                player.vy = 0;
+                player.grounded = true;
+            } else {
+                player.grounded = false;
+            }
+        }
+
+        function updateObstacle() {
+            obstacle.x -= obstacle.speed;
+            if (obstacle.x + obstacle.w < 0) {
+                obstacle.x = 800 + Math.random() * 200;
+            }
+        }
+
+        function checkCollision() {
+            if (
+                player.x < obstacle.x + obstacle.w &&
+                player.x + player.w > obstacle.x &&
+                player.y < obstacle.y + obstacle.h &&
+                player.y + player.h > obstacle.y
+            ) {
+                gameOver = true;
+            }
+        }
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawPlayer();
+            drawObstacle();
+
+            updatePlayer();
+            updateObstacle();
+            checkCollision();
+
+            if (gameOver) {
+                ctx.font = "40px Arial";
+                ctx.fillStyle = "#ff0055";
+                ctx.fillText("Game Over!", 300, 200);
+            } else {
+                requestAnimationFrame(gameLoop);
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.code === 'Space' && player.grounded && !gameOver) {
+                player.vy = player.jump;
+            }
+            if (gameOver && e.code === 'Enter') {
+                // Reinicia o jogo
+                player.y = 300;
+                obstacle.x = 800;
+                gameOver = false;
+                gameLoop();
+            }
+        });
+
+        gameLoop();
+    </script>
+</body>
+</html>

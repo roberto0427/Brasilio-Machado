@@ -1,0 +1,18 @@
+body{
+    display: inline;
+    container: 23px;
+    align-items: center;
+    text-align: center;
+    background-color: aliceblue;
+}
+button{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: 1px;
+    border-radius: 23px;}
+   
+text{
+    text-align: center;
+    text-decoration: dotted;
+
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OFICIAL BRASILIO</title>
+    <link rel="stylesheet" href="index.css"> <!-- Conectar o CSS ao HTML -->
+</head>
+<body>
+    <!-- Cabeçalho com logo e navegação -->
+    <header>
+         
+        <div class="logo">
+<img src="fotos_site/logo-removebg-preview.png"alt="" width="40" height="40">            
+       <h1>Oficial Brasilio</h1>
+    
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="calendario.html">Calendário Escolar</a></li>
+                <li><a href="objetivo_do_site.html">Notícias</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="jogo.html">Jogos</a></li>
+                <li><a href="contato.html">Fale conosco</a></li>
+                <li><a href="https://www.educacao.sp.gov.br/">Seduc SP</a></li>
+                <li><a href="https://sites.google.com/prof.educacao.sp.gov.br/gresp/1-gr%C3%AAmio-estudantil-paulista">Gremio estudantil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Carrosel de fotos-->
+<section id="carrosel" class="section">
+      <!-- Splide CSS (CDN) -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+      <style>
+        /* estilo básico para ajustar as imagens */
+        body { font-family: Arial, sans-serif; margin: 0px; }
+        .splide__slide img {
+          width: 100%;
+          height: auto;
+          display: block;
+          object-fit: cover;
+        }
+        /* largura máxima do carrossel */
+        .carousel-wrapper { max-width: 290px; margin: 0 auto; }
+      </style>
+  </head>
+  <body>
+    <div class="carousel-wrapper">
+      <section id="image-carousel" class="splide" aria-label="Belas Imagens">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide"><img src="fotos_site/patio foto.jpeg" alt="Imagem 1" width="200" height="200"></li>
+            <li class="splide__slide"><img src="fotos_site/projeto 2024.jpeg" alt="Imagem 2" width="200" height="200"></li>
+            <li class="splide__slide"><img src="fotos_site/quadra.jpeg" alt="Imagem 3" width="200" height="200"></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  
+    <!-- Splide JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#image-carousel', {
+          type   : 'loop',
+          perPage: 1,
+          autoplay: true,
+          interval: 3000,
+          pauseOnHover: true,
+          pagination: true,
+          arrows: true,
+        }).mount();
+      });
+    </script>
+  </body>
+  
+</section>
+
+<!--Final do carrosel -->
+
+    <!-- Seção "Início" -->
+    <section id="home" class="section">
+        <h2>Bem-vindo ào site do Brasilio.</h2>
+        <p>Nosso objetivo é trazer informação para navegantes da página.</p>
+        <p>saiba mais sobre a nossa historia.</p><a href="Historia_do_Brasilio.html"><button>ler mais</button></a>
+    </section>
+    <!-- Seção "Calendário Escolar" -->
+    <section id="calendar" class="section">
+        <h2>Calendário Escolar</h2>
+        <p>Confira as datas importantes para este ano:</p>
+        <ul>
+            <li>Início das aulas: 3º de fevereiro</li>
+            <li>Feriados: 7 de setembro, 25 de dezembro</li>
+            <li>Férias de inverno: 15 a 30 de julho</li>
+        </ul>
+    </section>
+
+    <!-- Seção "sobre o brasilio" -->
+    <section id="Sobre nos" class="section">
+        <h2>Notícias</h2>
+        <article>
+            <h3>Nova metodologia de ensino implementada!</h3>
+            <p>A partir deste semestre, o Brasilinho implementará uma nova abordagem pedagógica...</p> 
+           <a href="objetivo_do_site.html"><button>ler mais</button></a>
+        </article>
+    </section>
+
+    <!--?-->
+<section id="cursos" class="section">
+    <h2>Cursos técnicos</h2>
+    <article>
+        <h3>Conheça nossos cursos</h3>
+        <p>algo de novo para fazer</p>
+        <a href="cr.html"><button>Ler mais</button></a>
+    </article>
+</section>
+        
+    <!-- Rodapé refazer -->
+
+    <footer>
+    <div class="creditos">
+       &copy; 2025 Escola Estadual Brasilio Machado e 3DS.
+    </div>    
+    </footer>
+</body>
+</html>

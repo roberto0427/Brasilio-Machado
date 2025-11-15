@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(228, 227, 226);
+    font-style: arial;
+    text-align: center;
+    align-items: center;
+}
+
+footer{
+    align-items: end;
+}
+
+image{
+    align-items: center;
+}
